@@ -1,0 +1,58 @@
+export const stakeholders = [
+  {
+    id: "ceo",
+    name: "Nalin Perera",
+    role: "Chief Executive Officer",
+    image: "/characters/ceo.png",
+    questionLimit: 5,
+  },
+  {
+    id: "coo",
+    name: "Shanika Fernando",
+    role: "Chief Operating Officer",
+    image: "/characters/coo.png",
+    questionLimit: 7,
+  },
+  {
+    id: "manufacturing",
+    name: "Dinesh Silva",
+    role: "Head of Manufacturing",
+    image: "/characters/headofmanufacturing.png",
+    questionLimit: 10,
+  },
+  {
+    id: "logistics",
+    name: "Chathura Jayasinghe",
+    role: "Head of Logistics",
+    image: "/characters/headoflogistics.png",
+    questionLimit: 10,
+  },
+  {
+    id: "it",
+    name: "Ruwan De Alwis",
+    role: "Head of IT",
+    image: "/characters/headofit.png",
+    questionLimit: 10,
+  },
+  {
+    id: "finance",
+    name: "Amali Wickramasinghe",
+    role: "Head of Finance",
+    image: "/characters/headoffinance.png",
+    questionLimit: 7,
+  },
+  {
+    id: "hr",
+    name: "Tharushi Samarasinghe",
+    role: "HR Manager",
+    image: "/characters/hrmanager.png",
+    questionLimit: 10,
+  },
+  {
+    id: "admin",
+    name: "Roshan Abeysekera",
+    role: "Administration Manager",
+    image: "/characters/adminmanager.png",
+    questionLimit: 10,
+  },
+];
