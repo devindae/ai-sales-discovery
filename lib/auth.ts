@@ -1,18 +1,38 @@
-import { auth } from "./firebase";
+export const teams = [
+  {
+    username: "teama",
+    password: "nexa2026",
+    teamId: "TEAM_A",
+    teamName: "Team A",
+  },
+  {
+    username: "teamb",
+    password: "nexa2026",
+    teamId: "TEAM_B",
+    teamName: "Team B",
+  },
+  {
+    username: "teamc",
+    password: "nexa2026",
+    teamId: "TEAM_C",
+    teamName: "Team C",
+  },
+  {
+    username: "teamd",
+    password: "nexa2026",
+    teamId: "TEAM_D",
+    teamName: "Team D",
+  },
+];
 
-import {
-  GoogleAuthProvider,
-  signInWithPopup,
-  signOut,
-} from "firebase/auth";
-
-const provider = new GoogleAuthProvider();
-
-export async function loginWithGoogle() {
-  const result = await signInWithPopup(auth, provider);
-  return result.user;
-}
-
-export async function logout() {
-  await signOut(auth);
+export function validateLogin(
+  username: string,
+  password: string
+) {
+  return teams.find(
+    (team) =>
+      team.username.toLowerCase() ===
+        username.toLowerCase() &&
+      team.password === password
+  );
 }

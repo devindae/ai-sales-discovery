@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 type Message = {
   sender: string;
@@ -21,6 +21,9 @@ export default function ChatClient({
   const [question, setQuestion] = useState("");
   const [loading, setLoading] = useState(false);
 
+  const [teamId, setTeamId] = useState("");
+  const [teamName, setTeamName] = useState("");
+
   const [questionsRemaining, setQuestionsRemaining] =
     useState(questionLimit);
 
@@ -30,6 +33,17 @@ export default function ChatClient({
       text: `Hello, I'm ${stakeholderName}. Feel free to ask me questions about my department, business challenges, priorities, and objectives.`,
     },
   ]);
+
+  useEffect(() => {
+    const teamData = localStorage.getItem("team");
+
+    if (teamData) {
+      const team = JSON.parse(teamData);
+
+      setTeamId(team.teamId);
+      setTeamName(team.teamName);
+    }
+  }, []);
 
   const sendQuestion = async () => {
     if (!question.trim()) return;
@@ -58,7 +72,10 @@ export default function ChatClient({
         },
         body: JSON.stringify({
           stakeholderId,
+          stakeholderName,
           question: currentQuestion,
+          teamId,
+          teamName,
         }),
       });
 
@@ -102,6 +119,16 @@ export default function ChatClient({
 
             <p className="text-2xl font-bold text-blue-600">
               {questionsRemaining}
+            </p>
+          </div>
+
+          <div className="text-right">
+            <p className="text-sm text-slate-500">
+              Team
+            </p>
+
+            <p className="font-bold text-green-700">
+              {teamName}
             </p>
           </div>
 
